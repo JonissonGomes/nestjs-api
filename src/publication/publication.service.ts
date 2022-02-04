@@ -15,7 +15,7 @@ export class PublicationService {
   }
 
   findAll() {
-    return `This action returns all publication`;
+    return this.publicationModel.findAll();
   }
 
   findOne(id: number) {
