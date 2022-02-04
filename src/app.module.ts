@@ -13,6 +13,7 @@ import { PublicationModule } from './publication/publication.module';
       autoLoadModels: true,
       synchronize: true,
     }),
+    PublicationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
