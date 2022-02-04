@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
 import { CreatePublicationDto } from './dto/create-publication.dto';
 import { UpdatePublicationDto } from './dto/update-publication.dto';
+import { Publication } from './entities/publication.entity';
 
 @Injectable()
 export class PublicationService {
+  constructor(
+    @InjectModel(Publication)
+    private publicationModel: typeof Publication,
+  ) {}
   create(createPublicationDto: CreatePublicationDto) {
-    return 'This action adds a new publication';
+    return this.publicationModel.create(createPublicationDto as any);
   }
 
   findAll() {
